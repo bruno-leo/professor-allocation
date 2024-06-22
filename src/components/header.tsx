@@ -3,6 +3,7 @@ import {
     Flex,
     Text,
     IconButton,
+    Image,
     Stack,
     Collapse,
     Icon,
@@ -10,9 +11,11 @@ import {
     Popover,
     PopoverTrigger,
     PopoverContent,
+    Spacer,
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    Center,
   } from '@chakra-ui/react';
   // import { Link } from '@chakra-ui/react';
   import { Link as ReactRouterLink } from 'react-router-dom';
@@ -34,32 +37,18 @@ import {
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.900')}
           align={'center'}
-        >
-          <Flex
-            flex={{ base: 1, md: 'auto' }}
-            ml={{ base: -2 }}
-            display={{ base: 'flex', md: 'none' }}
-          >
-            <IconButton
-              onClick={onToggle}
-              icon={
-                isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+        >          
+          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>            
+            <Image
+              alt={'Unifafire logo'}
+              objectFit={'fill'}
+              src={
+                'https://unifafire.edu.br/wp-content/uploads/2023/08/unifafirenova.png'
               }
-              variant={'ghost'}
-              aria-label={'Toggle Navigation'}
             />
-          </Flex>
-          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}
-            >
-              Fafire Allocation
-            </Text>
-  
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav />
+            <Spacer />
+            <Flex display={{ base: 'none', md: 'flex' }} >
+              <Center><DesktopNav /></Center>              
             </Flex>
           </Flex>
         </Flex>
